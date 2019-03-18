@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7402F3D9223F4FB9006DE205 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402F3D8223F4FB9006DE205 /* AppDelegate.swift */; };
+		7402F3DB223F4FB9006DE205 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402F3DA223F4FB9006DE205 /* ViewController.swift */; };
+		7402F3DD223F4FBA006DE205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7402F3DC223F4FBA006DE205 /* Assets.xcassets */; };
+		7402F3E0223F4FBB006DE205 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7402F3DE223F4FBA006DE205 /* Main.storyboard */; };
+		7402F3EC223F4FBB006DE205 /* DocklessCocoaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402F3EB223F4FBB006DE205 /* DocklessCocoaTests.swift */; };
+		7402F3F7223F4FBB006DE205 /* DocklessCocoaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402F3F6223F4FBB006DE205 /* DocklessCocoaUITests.swift */; };
+		7402F40A223F54A9006DE205 /* MenuContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402F408223F54A9006DE205 /* MenuContentViewController.swift */; };
+		7402F40D223F5E06006DE205 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402F40C223F5E06006DE205 /* MainWindowController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7402F3E8223F4FBB006DE205 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7402F3CD223F4FB9006DE205 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7402F3D4223F4FB9006DE205;
+			remoteInfo = DocklessCocoa;
+		};
+		7402F3F3223F4FBB006DE205 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7402F3CD223F4FB9006DE205 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7402F3D4223F4FB9006DE205;
+			remoteInfo = DocklessCocoa;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7402F3D5223F4FB9006DE205 /* DocklessCocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocklessCocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7402F3D8223F4FB9006DE205 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7402F3DA223F4FB9006DE205 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7402F3DC223F4FBA006DE205 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7402F3DF223F4FBA006DE205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7402F3E1223F4FBB006DE205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7402F3E2223F4FBB006DE205 /* DocklessCocoa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DocklessCocoa.entitlements; sourceTree = "<group>"; };
+		7402F3E7223F4FBB006DE205 /* DocklessCocoaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocklessCocoaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7402F3EB223F4FBB006DE205 /* DocklessCocoaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocklessCocoaTests.swift; sourceTree = "<group>"; };
+		7402F3ED223F4FBB006DE205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7402F3F2223F4FBB006DE205 /* DocklessCocoaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocklessCocoaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7402F3F6223F4FBB006DE205 /* DocklessCocoaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocklessCocoaUITests.swift; sourceTree = "<group>"; };
+		7402F3F8223F4FBB006DE205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7402F408223F54A9006DE205 /* MenuContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContentViewController.swift; sourceTree = "<group>"; };
+		7402F40C223F5E06006DE205 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7402F3D2223F4FB9006DE205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7402F3E4223F4FBB006DE205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7402F3EF223F4FBB006DE205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7402F3CC223F4FB9006DE205 = {
+			isa = PBXGroup;
+			children = (
+				7402F3D7223F4FB9006DE205 /* DocklessCocoa */,
+				7402F3EA223F4FBB006DE205 /* DocklessCocoaTests */,
+				7402F3F5223F4FBB006DE205 /* DocklessCocoaUITests */,
+				7402F3D6223F4FB9006DE205 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7402F3D6223F4FB9006DE205 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7402F3D5223F4FB9006DE205 /* DocklessCocoa.app */,
+				7402F3E7223F4FBB006DE205 /* DocklessCocoaTests.xctest */,
+				7402F3F2223F4FBB006DE205 /* DocklessCocoaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7402F3D7223F4FB9006DE205 /* DocklessCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				7402F3D8223F4FB9006DE205 /* AppDelegate.swift */,
+				7402F3DA223F4FB9006DE205 /* ViewController.swift */,
+				7402F3DC223F4FBA006DE205 /* Assets.xcassets */,
+				7402F3DE223F4FBA006DE205 /* Main.storyboard */,
+				7402F3E1223F4FBB006DE205 /* Info.plist */,
+				7402F3E2223F4FBB006DE205 /* DocklessCocoa.entitlements */,
+				7402F408223F54A9006DE205 /* MenuContentViewController.swift */,
+				7402F40C223F5E06006DE205 /* MainWindowController.swift */,
+			);
+			path = DocklessCocoa;
+			sourceTree = "<group>";
+		};
+		7402F3EA223F4FBB006DE205 /* DocklessCocoaTests */ = {
+			isa = PBXGroup;
+			children = (
+				7402F3EB223F4FBB006DE205 /* DocklessCocoaTests.swift */,
+				7402F3ED223F4FBB006DE205 /* Info.plist */,
+			);
+			path = DocklessCocoaTests;
+			sourceTree = "<group>";
+		};
+		7402F3F5223F4FBB006DE205 /* DocklessCocoaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7402F3F6223F4FBB006DE205 /* DocklessCocoaUITests.swift */,
+				7402F3F8223F4FBB006DE205 /* Info.plist */,
+			);
+			path = DocklessCocoaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7402F3D4223F4FB9006DE205 /* DocklessCocoa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7402F3FB223F4FBB006DE205 /* Build configuration list for PBXNativeTarget "DocklessCocoa" */;
+			buildPhases = (
+				7402F3D1223F4FB9006DE205 /* Sources */,
+				7402F3D2223F4FB9006DE205 /* Frameworks */,
+				7402F3D3223F4FB9006DE205 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DocklessCocoa;
+			productName = DocklessCocoa;
+			productReference = 7402F3D5223F4FB9006DE205 /* DocklessCocoa.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7402F3E6223F4FBB006DE205 /* DocklessCocoaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7402F3FE223F4FBB006DE205 /* Build configuration list for PBXNativeTarget "DocklessCocoaTests" */;
+			buildPhases = (
+				7402F3E3223F4FBB006DE205 /* Sources */,
+				7402F3E4223F4FBB006DE205 /* Frameworks */,
+				7402F3E5223F4FBB006DE205 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7402F3E9223F4FBB006DE205 /* PBXTargetDependency */,
+			);
+			name = DocklessCocoaTests;
+			productName = DocklessCocoaTests;
+			productReference = 7402F3E7223F4FBB006DE205 /* DocklessCocoaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7402F3F1223F4FBB006DE205 /* DocklessCocoaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7402F401223F4FBB006DE205 /* Build configuration list for PBXNativeTarget "DocklessCocoaUITests" */;
+			buildPhases = (
+				7402F3EE223F4FBB006DE205 /* Sources */,
+				7402F3EF223F4FBB006DE205 /* Frameworks */,
+				7402F3F0223F4FBB006DE205 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7402F3F4223F4FBB006DE205 /* PBXTargetDependency */,
+			);
+			name = DocklessCocoaUITests;
+			productName = DocklessCocoaUITests;
+			productReference = 7402F3F2223F4FBB006DE205 /* DocklessCocoaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7402F3CD223F4FB9006DE205 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "chen he";
+				TargetAttributes = {
+					7402F3D4223F4FB9006DE205 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					7402F3E6223F4FBB006DE205 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 7402F3D4223F4FB9006DE205;
+					};
+					7402F3F1223F4FBB006DE205 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 7402F3D4223F4FB9006DE205;
+					};
+				};
+			};
+			buildConfigurationList = 7402F3D0223F4FB9006DE205 /* Build configuration list for PBXProject "DocklessCocoa" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7402F3CC223F4FB9006DE205;
+			productRefGroup = 7402F3D6223F4FB9006DE205 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7402F3D4223F4FB9006DE205 /* DocklessCocoa */,
+				7402F3E6223F4FBB006DE205 /* DocklessCocoaTests */,
+				7402F3F1223F4FBB006DE205 /* DocklessCocoaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7402F3D3223F4FB9006DE205 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7402F3DD223F4FBA006DE205 /* Assets.xcassets in Resources */,
+				7402F3E0223F4FBB006DE205 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7402F3E5223F4FBB006DE205 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7402F3F0223F4FBB006DE205 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7402F3D1223F4FB9006DE205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7402F3DB223F4FB9006DE205 /* ViewController.swift in Sources */,
+				7402F40A223F54A9006DE205 /* MenuContentViewController.swift in Sources */,
+				7402F40D223F5E06006DE205 /* MainWindowController.swift in Sources */,
+				7402F3D9223F4FB9006DE205 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7402F3E3223F4FBB006DE205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7402F3EC223F4FBB006DE205 /* DocklessCocoaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7402F3EE223F4FBB006DE205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7402F3F7223F4FBB006DE205 /* DocklessCocoaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7402F3E9223F4FBB006DE205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7402F3D4223F4FB9006DE205 /* DocklessCocoa */;
+			targetProxy = 7402F3E8223F4FBB006DE205 /* PBXContainerItemProxy */;
+		};
+		7402F3F4223F4FBB006DE205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7402F3D4223F4FB9006DE205 /* DocklessCocoa */;
+			targetProxy = 7402F3F3223F4FBB006DE205 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7402F3DE223F4FBA006DE205 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7402F3DF223F4FBA006DE205 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7402F3F9223F4FBB006DE205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7402F3FA223F4FBB006DE205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		7402F3FC223F4FBB006DE205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DocklessCocoa/DocklessCocoa.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NM8T9PQ2C4;
+				INFOPLIST_FILE = DocklessCocoa/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.chen.osx.DocklessCocoa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		7402F3FD223F4FBB006DE205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DocklessCocoa/DocklessCocoa.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NM8T9PQ2C4;
+				INFOPLIST_FILE = DocklessCocoa/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.chen.osx.DocklessCocoa;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		7402F3FF223F4FBB006DE205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NM8T9PQ2C4;
+				INFOPLIST_FILE = DocklessCocoaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.chen.osx.DocklessCocoaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DocklessCocoa.app/Contents/MacOS/DocklessCocoa";
+			};
+			name = Debug;
+		};
+		7402F400223F4FBB006DE205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NM8T9PQ2C4;
+				INFOPLIST_FILE = DocklessCocoaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.chen.osx.DocklessCocoaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DocklessCocoa.app/Contents/MacOS/DocklessCocoa";
+			};
+			name = Release;
+		};
+		7402F402223F4FBB006DE205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NM8T9PQ2C4;
+				INFOPLIST_FILE = DocklessCocoaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.chen.osx.DocklessCocoaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = DocklessCocoa;
+			};
+			name = Debug;
+		};
+		7402F403223F4FBB006DE205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = NM8T9PQ2C4;
+				INFOPLIST_FILE = DocklessCocoaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.chen.osx.DocklessCocoaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = DocklessCocoa;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7402F3D0223F4FB9006DE205 /* Build configuration list for PBXProject "DocklessCocoa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7402F3F9223F4FBB006DE205 /* Debug */,
+				7402F3FA223F4FBB006DE205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7402F3FB223F4FBB006DE205 /* Build configuration list for PBXNativeTarget "DocklessCocoa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7402F3FC223F4FBB006DE205 /* Debug */,
+				7402F3FD223F4FBB006DE205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7402F3FE223F4FBB006DE205 /* Build configuration list for PBXNativeTarget "DocklessCocoaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7402F3FF223F4FBB006DE205 /* Debug */,
+				7402F400223F4FBB006DE205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7402F401223F4FBB006DE205 /* Build configuration list for PBXNativeTarget "DocklessCocoaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7402F402223F4FBB006DE205 /* Debug */,
+				7402F403223F4FBB006DE205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7402F3CD223F4FB9006DE205 /* Project object */;
+}
