@@ -14,9 +14,9 @@ tags: ["Dock","Cocoa", "Menu", "Agent","Login"]
 
 > Applications can contain a helper application as a full application bundle, stored inside the main application bundle in the Contents/Library/LoginItems directory. Set either the LSUIElement or LSBackgroundOnly key in the Info.plist file of the helper application’s bundle.
 
-Use the SMLoginItemSetEnabled function (available in OS X v10.6.6 and later) to enable a helper application. It takes two arguments, a CFStringRef containing the bundle identifier of the helper application, and a Boolean specifying the desired state. Pass true to start the helper application immediately and indicate that it should be started every time the user logs in. Pass false to terminate the helper application and indicate that it should no longer be launched when the user logs in. This function returns true if the requested change has taken effect; otherwise, it returns false. This function can be used to manage any number of helper applications.
+> Use the SMLoginItemSetEnabled function (available in OS X v10.6.6 and later) to enable a helper application. It takes two arguments, a CFStringRef containing the bundle identifier of the helper application, and a Boolean specifying the desired state. Pass true to start the helper application immediately and indicate that it should be started every time the user logs in. Pass false to terminate the helper application and indicate that it should no longer be launched when the user logs in. This function returns true if the requested change has taken effect; otherwise, it returns false. This function can be used to manage any number of helper applications.
 
-If multiple applications (for example, several applications from the same company) contain a helper application with the same bundle identifier, only the one with the greatest bundle version number is launched. Any of the applications that contain a copy of the helper application can enable and disable it.
+> If multiple applications (for example, several applications from the same company) contain a helper application with the same bundle identifier, only the one with the greatest bundle version number is launched. Any of the applications that contain a copy of the helper application can enable and disable it.
 
 如文档中描述的那样，你可以在主应用中包含一个辅助应用，并且路径固定为 `Contents/Library/LoginItems`，
 
@@ -34,9 +34,7 @@ If multiple applications (for example, several applications from the same compan
 
 其实上面提及的方式也就是在第一小节中提到的两种方式中的第一种，而且第二种共享文件列表的 API 是无法针对沙盒应用使用的，而且 `LSSharedFileList.h` 已经在 10.10 系统版本之后标记为废弃了。
 
-
 综合上面的说明，目前在 macOS 上加入自启动项的方式也只有且仅有一种方式，也就是加入辅助应用来引导主应用启动。整个思路应该是如下：
-
 
 1. 将辅助应用加入系统启动项中；
 2. 系统启动，进而自启动辅助应用；
@@ -57,49 +55,48 @@ If multiple applications (for example, several applications from the same compan
 
 ## 启动项支持
 
-![CleanShot 2019-04-01 at 13.06.26](https://i.imgur.com/fJUpG26.png)
+![Add Target](https://i.imgur.com/fJUpG26.png)
 
 指定 CocoaApp
 
-![Xcode 2019-04-01 at 13.07.45](https://i.imgur.com/tXJDr1Y.png)
+![Select CocoaApp](https://i.imgur.com/tXJDr1Y.png)
 
 
 指定 Product ID 为 `StartAtLoginLauncher`,该 Target 的 BundleID 为 `app.chen.osx.demo.StartAtLoginLauncher`。
 
-![Xcode 2019-04-01 at 13.08.09](https://i.imgur.com/uj2yhht.png)
+![Set Up Product Name](https://i.imgur.com/uj2yhht.png)
 
 
 然后，修改 StartAtLoginLauncher 的 Info.plist 文件，指定 `LSBackgroundOnly` 为 YES
-![CleanShot 2019-04-01 at 13.13.20](https://i.imgur.com/BqNsFm7.png)
+![Background Only](https://i.imgur.com/BqNsFm7.png)
 
 修改 StartAtLoginLauncher Target 的 Build Setting 中 `Skip Install` 为 `YES`
 
-![CleanShot 2019-04-01 at 13.20.46](https://i.imgur.com/qKZzECK.png)
+![Skip Install](https://i.imgur.com/qKZzECK.png)
 
 
 紧接着是设置主应用 StartAtLogin Target，为其加入 Copy Files Build Phase，如下设置，路径是固定的 `Contents/Library/LoginItems`，Copy 对象为 `StartAtLoginLauncher`
 
-![CleanShot 2019-04-01 at 13.19.08](https://i.imgur.com/wfaxgmZ.png)
+![Copy Files Build Phase](https://i.imgur.com/wfaxgmZ.png)
 
 
 至此，所有设置均已完成，你可以 Command+B 产出一个 Product 看看，在主应用里是否已经将启动项目包含进去了。
 
-![CleanShot 2019-04-01 at 13.25.44](https://i.imgur.com/XfyYMG1.png)
+![Build a Demo](https://i.imgur.com/XfyYMG1.png)
 
-![Finder 2019-04-01 at 13.24.59](https://i.imgur.com/OGXYmxw.png)
+![Check App Package](https://i.imgur.com/OGXYmxw.png)
 
 还没有结束，因为 StartAtLoginLauncher 应用是指在后台运行，我们不希望辅助应用启动的时候弹出 UI，因此还需要删除相关的 UI 代码，在 Main.storyboard 中，删除 Window 以及 ViewController，只保留 Application Scene 即可
 
-![Xcode 2019-04-01 at 13.32.18](https://i.imgur.com/poclDG1.png)
-
+![Remove all UI](https://i.imgur.com/poclDG1.png)
 
 至此，所有写代码之前的工作已经完成，我们已经为主应用生成了对应的辅助应用，帮助其启动。
 
 ### 加入启动项
 
 代码核心逻辑包含两部分：
-1. 主应用启动之后杀掉辅助应用，因为其已经完成了使命；
-2. 助应用启动之后将主应用唤醒
+1. 主应用启动之后杀掉辅助应用，因为其已经完成了使命
+2. 辅助应用启动之后将主应用唤醒
 
 #### 主应用
 
@@ -210,7 +207,7 @@ SMCopyAllJobDictionaries(CFStringRef domain);
 ``` Swift
 let launchHelperIdentifier = "app.chen.osx.demo.StartAtLoginLauncher"
 let jobs = SMCopyAllJobDictionaries(kSMDomainUserLaunchd).takeRetainedValue() as? [[String: AnyObject]]
-var autoLaunchRegistered = jobs?.contains(where: { $0["Label"] as! String == launchHelperIdentifier }) ?? false
+let getAutoLaunchStatus = jobs?.contains(where: { $0["Label"] as! String == launchHelperIdentifier }) ?? false
 ```
 
 ##### SMLoginItemSetEnabled
