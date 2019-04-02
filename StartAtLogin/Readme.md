@@ -152,6 +152,25 @@ func applicationDidFinishLaunching(_ aNotification: Notification) {
 
 辅助应用启动之后，查询主应用是否已经运行，如果已经运行，就自觉干掉自己。如果没有运行，我们唤醒主 App，在此之前设置监听，等到主应用启动之后会发给自己通知，然后再自杀 😂
 
+这其中我们使用了 `DistributedNotificationCenter`，和平时我们使用的 `NotificationCenter` 不同，其发出的通知是跨任务的，也就是其他进程如果注册了同样的通知，也是能够收到监听通知的。 系统的日夜间通知就是这种类型，其会在所有 Task 之间进行广播，该通知的 NotificationName 是 `AppleInterfaceThemeChangedNotification`.
+
+``` Swift
+
+private static let notificationName = NSNotification.Name("AppleInterfaceThemeChangedNotification")
+
+func reigsterThemeChangedNotification() {
+    DistributedNotificationCenter.default().addObserver(self, selector: #selector(selectorHandler), name: notificationName, object: nil)
+}
+
+@objc
+private static func selectorHandler() {
+    print("Theme Changed!")
+}
+
+```
+
+因此 Demo 中的通知名字只是示例，尽可能的确保通知的唯一性。
+
 
 #### 切换自启动状态
 
