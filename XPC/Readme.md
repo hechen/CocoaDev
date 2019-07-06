@@ -16,11 +16,9 @@ XPC 是 macOS 上一种进程间通信的技术统称，其使得我们可以将
 
 拿我目前在做的工作来讲，确实有针对以上这两点的需求。上层业务通过执行脚本命令获取执行结果，执行脚本命令使用的就是 NSTask，大概结构如下：
 
-![shared-42f9e747-a47b-46fd-b445-0c7615b41020](https://i.imgur.com/8glAV2u.png)
+![NSTask Layer](https://i.imgur.com/8glAV2u.png)
 
-由于 NSTask 内部执行的脚本程序自身还会调用其他依赖的功能，比如 xcrun 等二进制程序，而对于使用 NSTask 或者 posix_spawn 派生的任务来说，其虽然也是执行拆分出来的小部分工作，但在沙盒环境下的应用程序，使得派生出的进程自身其继承了父进程的沙盒环境，由于某些脚本执行的二进制本身是不允许在沙盒环境下运行的，因此主应用就不得不关闭沙盒。这也使得无法给主应用添加 Push 推送功能，因为 APNS 通知服务需要建立 SSL 链接，这个是需要在 Sandbox 环境下进行的。
-
-另外，对于执行 NSTask 的这层命令行执行模块来讲，拆分到独立的进程中使得安全性也得以提高，即使 XPC 进程挂掉，一般情况下再次向 XPC 通信，系统会自行恢复启用新的 XPC 进程，而主应用无感知。
+对于执行 NSTask 的这层命令行执行模块来讲，拆分到独立的进程中使得安全性得以提高，即使 XPC 进程挂掉，一般情况下再次向 XPC 通信，系统会自行恢复启用新的 XPC 进程，而主应用无感知。
 
 ## XPC 架构
 
@@ -40,18 +38,18 @@ XPC 是 macOS 上一种进程间通信的技术统称，其使得我们可以将
 
 #### 新建 XPC Service 的 Target
 
-   ![CleanShot_2019-07-03_at_23-ea31e8da-54cb-4d33-9f64-cce21928fc95.24.322x](https://i.imgur.com/BNFRaG7.png)
+![Add New XPC Service Target](https://i.imgur.com/BNFRaG7.png)
 
-![CleanShot_2019-07-03_at_23-5830cf7d-cd83-4b74-bf96-d5bbf0b8ca26.24.492x](https://i.imgur.com/AyEq9Iv.png)
+![Input Target Info](https://i.imgur.com/AyEq9Iv.png)
 
 
 这里要说一点，Xcode 提供的 XPC Service 创建的时候是没有语言选项的，默认都是创建的 Objective-C 的样板文件，但是你是可以把所有的代码文件删除，然后建立 main.swift 来写的，一样能够开发。
 
 #### 建立 Listener，监听连接
 
-实际上，当你建立完毕 Targe 之后，系统默认生成的文件里已经将对应的代码大致过程已经通过注释和代码列出来了。我们看下在默认生成的 ServiceDelegate.m 文件中的代码逻辑：
+实际上，当你建立完毕 Targe 之后，系统默认生成的文件里已经将对应的代码大致过程已经通过注释和代码列出来了。我将这部分逻辑在 Swift 文件里也写了出来，如下：
 
-![Carbonize_2019-07-04_at_12-b6e303b7-d48b-45ca-b050-6afe123d8493.30.30_A](https://i.imgur.com/o3gCND7.png)
+![NSXCListener](https://i.imgur.com/o3gCND7.png)
 
 
 每个 Service 会启动 NSConnectionListener，其代理方法是 NSXPCListenerDelegate，一旦主应用发起连接，该代理方法就会启动来做连接前的准备，而代理方法中的主要逻辑就三点：
@@ -71,12 +69,12 @@ XPC 是 macOS 上一种进程间通信的技术统称，其使得我们可以将
 2. 指定使用哪个协议接口（Protocol 的 Membership 需要主应用和 XPC Service 的Targe 共享）
 3. resume
 
-![Carbonize_2019-07-04_at_12-90971e4f-a6f3-42bc-ae95-8083e70506dd.35.14_A](https://i.imgur.com/3UTQgK6.png)
+![Main Application](https://i.imgur.com/3UTQgK6.png)
 
 
 但是此时 Service 里的监听实际上还未执行，直到你发起第一次 Request。向 XPC Service 发起动作的具体就是从刚刚创建的 NSXPCConnection 中获取对应的接口以及执行该接口来和 Service 交互。
 
-![Carbonize_2019-07-04_at_12-4dddb842-52cc-403a-a6c4-dc9cb587cbdb.40.09_A](https://i.imgur.com/9vACIeA.png)
+![Request](https://i.imgur.com/9vACIeA.png)
 
 
 整体过程如 Apple 文档里的图示过程，
